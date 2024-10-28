@@ -11,5 +11,15 @@ namespace Negocios
 {
     public class NegConjuntos
     {
+        DatosConjuntos objDatosConjuntos = new DatosConjuntos();
+
+        public int abmConjuntos(string accion, Conjunto objConjunto)
+        {
+            return objDatosConjuntos.abmConjuntos(accion, objConjunto);
+        }
+        public DataSet listadoConjuntos(string cual)
+        {
+            return objDatosConjuntos.listadoConjuntos(cual);
+        }
     }
 }

@@ -11,5 +11,15 @@ namespace Negocios
 {
     public class NegPersonajes
     {
+        DatosPersonajes objDatosPersonajes = new DatosPersonajes();
+
+        public int abmPersonajes(string accion, Personaje objPersonaje)
+        {
+            return objDatosPersonajes.abmPersonajes(accion, objPersonaje);
+        }
+        public DataSet listadoPersonajes(string cual)
+        {
+            return objDatosPersonajes.listadoPersonajes(cual);
+        }
     }
 }

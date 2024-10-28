@@ -11,5 +11,15 @@ namespace Negocios
 {
     public class NegUsuarios
     {
+        DatosUsuarios objDatosUsuarios = new DatosUsuarios();
+
+        public int abmUsuarios(string accion, Usuario objUsuario)
+        {
+            return objDatosUsuarios.abmUsuarios(accion, objUsuario);
+        }
+        public DataSet listadoUsuarios(string cual)
+        {
+            return objDatosUsuarios.listadoUsuarios(cual);
+        }
     }
 }

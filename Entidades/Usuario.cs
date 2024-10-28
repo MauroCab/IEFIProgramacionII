@@ -9,6 +9,7 @@ namespace Entidades
     public class Usuario
     {
         #region atributos
+        private int id;
         private string nombreUsuario;
         private string email;
         private string contrasena;
@@ -23,6 +24,11 @@ namespace Entidades
         #endregion
 
         #region propiedades/encapsulamiento
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
         public string NombreUsuario 
         { get { return nombreUsuario; }
             set { nombreUsuario = value; }

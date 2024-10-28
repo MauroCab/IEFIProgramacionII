@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NegConjuntos.cs" />
+    <Compile Include="NegItems.cs" />
+    <Compile Include="NegPersonajes.cs" />
+    <Compile Include="NegTiposEquipamiento.cs" />
+    <Compile Include="NegUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

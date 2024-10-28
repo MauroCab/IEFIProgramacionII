@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatosConexionBD.cs" />
+    <Compile Include="DatosConjuntos.cs" />
+    <Compile Include="DatosItems.cs" />
+    <Compile Include="DatosPersonajes.cs" />
+    <Compile Include="DatosTiposEquipamiento.cs" />
+    <Compile Include="DatosUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

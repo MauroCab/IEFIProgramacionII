@@ -30,10 +30,10 @@ namespace Entidades
         private int? idConjunto;
         private string nombre;
         private int dano;
+        private int itemSalud;
+        private int itemEnergia;
         private int itemDefensa;
         private int itemEvasion;
-        private int itemEnergia;
-        private int itemSalud;
         private bool aDosManos;
         private int durabilidad;
         private int precio;
@@ -75,6 +75,16 @@ namespace Entidades
             get { return dano; }
             set { dano = value; }
         }
+        public int ItemSalud
+        {
+            get { return itemSalud; }
+            set { itemSalud = value; }
+        }
+        public int ItemEnergia
+        {
+            get { return itemEnergia; }
+            set { itemEnergia = value; }
+        }
         public int ItemDefensa
         {
             get { return itemDefensa; }
@@ -84,16 +94,6 @@ namespace Entidades
         {
             get { return itemEvasion; }
             set { itemEvasion = value; }
-        }
-        public int ItemEnergia
-        {
-            get {return itemEnergia; }
-            set { itemEnergia = value; }
-        }   
-        public int ItemSalud
-        {
-            get { return itemSalud; }
-            set { itemSalud = value; }
         }
         public bool ADosManos
         {

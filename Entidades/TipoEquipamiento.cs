@@ -36,5 +36,5 @@ namespace Entidades
             set {  nombre = value; }
         }
         #endregion
-    }
+    }Ti
 }

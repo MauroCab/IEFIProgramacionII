@@ -35,7 +35,7 @@ namespace Entidades
 		#region atributos
 		private int id;
 		private string nombre;
-		private string idCuenta;
+		private string idUsuario;
 		private int nivel;
 		private string clase;
 		private int salud;
@@ -71,10 +71,10 @@ namespace Entidades
 			get { return nombre; }
 			set { nombre = value; }
 		}
-		public string IdCuenta
+		public string IdUsuario
 		{
-			get { return idCuenta;}
-			set { idCuenta = value; }
+			get { return idUsuario;}
+			set { idUsuario = value; }
 		}
 		public int Nivel
 		{

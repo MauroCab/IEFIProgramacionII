@@ -10,26 +10,26 @@ namespace Entidades
     public class Personaje
     {
 		/*
-         Personaje:
-	-Id_Personaje
-	-Nombre
-	-Id_Cuenta
-	-Nivel
-	-Clase
-	-Salud
-	-Energía
-	-Inventario[items]
-	-Ataque (total)
-	-Defensa
-	-Evasión
-	-Casco Eq.: Objeto, clase: ítem, Tipo:[Nombre]
-	-Pant Eq.
-	-Guantes Eq.
-	-Armadura Eq.
-	-Arma Eq.
-	-Escudo Eq.
-	-Efectos[]
-	-Fecha_Creacion
+			Personaje:
+		-Id_Personaje
+		-Nombre
+		-Id_Cuenta
+		-Nivel
+		-Clase
+		-Salud
+		-Energía
+		-Inventario[items]
+		-Ataque (total)
+		-Defensa
+		-Evasión
+		-Casco Eq.: Objeto, clase: ítem, Tipo:[Nombre]
+		-Pant Eq.
+		-Guantes Eq.
+		-Armadura Eq.
+		-Arma Eq.
+		-Escudo Eq.
+		-Efectos[]
+		-Fecha_Creacion
 
          */
 		#region atributos

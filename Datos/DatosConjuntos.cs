@@ -17,10 +17,10 @@ namespace Datos
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = "insert into Conjuntos values (" + objConjunto.CodProf +
+                orden = "insert into Conjuntos values (" + objConjunto.Id +
                 ",'" + objConjunto.Nombre + "');";
             if (accion == "Modificar")
-                orden = "update Conjuntos set Nombre='" + objConjunto.Nombre + "'where CodProf = " + objConjunto.CodProf + "; ";
+                orden = "update Conjuntos set Nombre='" + objConjunto.Nombre + "'where Id = " + objConjunto.Id + "; ";
             // falta la orden de borrar
             OleDbCommand cmd = new OleDbCommand(orden, conexion);
             try
@@ -44,7 +44,7 @@ namespace Datos
         {
             string orden = string.Empty;
             if (cual != "Todos")
-                orden = "select * from Conjuntos where CodProf = " + int.Parse(cual) + ";";
+                orden = "select * from Conjuntos where Id = " + int.Parse(cual) + ";";
             else
                 orden = "select * from Conjuntos;";
             OleDbCommand cmd = new OleDbCommand(orden, conexion);

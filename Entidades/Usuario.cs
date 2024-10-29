@@ -10,10 +10,9 @@ namespace Entidades
     {
         #region atributos
         private int id;
-        private string nombreUsuario;
+        private string nombre;
         private string email;
         private string contrasena;
-        private List<Personaje> personajes;
         #endregion
 
         #region Constructor
@@ -29,9 +28,9 @@ namespace Entidades
             get { return id; }
             set { id = value; }
         }
-        public string NombreUsuario 
-        { get { return nombreUsuario; }
-            set { nombreUsuario = value; }
+        public string Nombre
+        { get { return nombre; }
+            set { nombre = value; }
         }
 
         public string Email
@@ -43,14 +42,9 @@ namespace Entidades
         public string Contrasena
         {
             get { return contrasena; }
-            set { Contrasena = value; }
+            set { contrasena = value; }
         }
 
-        public List<Personaje> Personajes
-        {
-            get { return personajes; }
-            set { personajes = value; }
-        }
         #endregion
 
     }

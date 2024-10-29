@@ -17,10 +17,10 @@ namespace Datos
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = "insert into TiposEquipamiento values (" + objTipoEquipamiento.CodProf +
+                orden = "insert into TiposEquipamiento values (" + objTipoEquipamiento.Id +
                 ",'" + objTipoEquipamiento.Nombre + "');";
             if (accion == "Modificar")
-                orden = "update TiposEquipamiento set Nombre='" + objTipoEquipamiento.Nombre + "'where CodProf = " + objTipoEquipamiento.CodProf + "; ";
+                orden = "update TiposEquipamiento set Nombre='" + objTipoEquipamiento.Nombre + "'where Id = " + objTipoEquipamiento.Id + "; ";
             // falta la orden de borrar
             OleDbCommand cmd = new OleDbCommand(orden, conexion);
             try
@@ -44,7 +44,7 @@ namespace Datos
         {
             string orden = string.Empty;
             if (cual != "Todos")
-                orden = "select * from TiposEquipamiento where CodProf = " + int.Parse(cual) + ";";
+                orden = "select * from TiposEquipamiento where Id = " + int.Parse(cual) + ";";
             else
                 orden = "select * from TiposEquipamiento;";
             OleDbCommand cmd = new OleDbCommand(orden, conexion);

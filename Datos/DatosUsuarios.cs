@@ -17,10 +17,10 @@ namespace Datos
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = "insert into Usuarios values (" + objUsuario.CodProf +
+                orden = "insert into Usuarios values (" + objUsuario.Id +
                 ",'" + objUsuario.Nombre + "');";
             if (accion == "Modificar")
-                orden = "update Usuarios set Nombre='" + objUsuario.Nombre + "'where CodProf = "+ objUsuario.CodProf + "; ";
+                orden = "update Usuarios set Nombre='" + objUsuario.Nombre + "'where Id = "+ objUsuario.Id + "; ";
             // falta la orden de borrar
             OleDbCommand cmd = new OleDbCommand(orden, conexion);
             try
@@ -30,8 +30,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                throw new Exception("Error al tratar de guardar,borrar o modificar de
-                Usuarios",e);
+                throw new Exception("Error al tratar de guardar,borrar o modificar de Usuarios",e);
             }
             finally
             {
@@ -45,7 +44,7 @@ namespace Datos
         {
             string orden = string.Empty;
             if (cual != "Todos")
-                orden = "select * from Usuarios where CodProf = " + int.Parse(cual) + ";";
+                orden = "select * from Usuarios where Id = " + int.Parse(cual) + ";";
             else
                 orden = "select * from Usuarios;";
             OleDbCommand cmd = new OleDbCommand(orden, conexion);

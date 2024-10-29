@@ -18,7 +18,7 @@ namespace Datos
             string orden = string.Empty;
             if (accion == "Alta")
                 orden = "insert into Items values (" + objItem.Id +
-                ",'" + objItem.NombreItem + "');";
+                ",'" + objItem.Nombre + "');";
             if (accion == "Modificar")
                 orden = "update Items set Nombre='" + objItem.Nombre + "'where Id = " + objItem.Id + "; ";
             // falta la orden de borrar

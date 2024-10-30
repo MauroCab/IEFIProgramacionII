@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HiddenTabsControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HiddenTabsControl.Designer.cs">
+      <DependentUpon>HiddenTabsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="IngresarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="HiddenTabsControl.resx">
+      <DependentUpon>HiddenTabsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IngresarForm.resx">
       <DependentUpon>IngresarForm.cs</DependentUpon>
     </EmbeddedResource>

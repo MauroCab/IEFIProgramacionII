@@ -35,5 +35,10 @@ namespace Presentación
             IForm.ShowDialog();
             IForm.Focus();
         }
+
+        private void panelIngreso_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

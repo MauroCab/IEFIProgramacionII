@@ -35,6 +35,5 @@ namespace Presentación
             IForm.ShowDialog();
             IForm.Focus();
         }
-
     }
 }

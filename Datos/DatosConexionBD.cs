@@ -19,7 +19,6 @@ namespace Datos
         public string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;
                                         AttachDbFilename=C:\Users\piero\RPG_CharMngr.mdf;
                                         Integrated Security=True;Connect Timeout=60";
-
         public void Abrirconexion()
         {
             try

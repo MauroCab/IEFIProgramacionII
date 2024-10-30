@@ -41,18 +41,20 @@
             this.panelIngreso.Controls.Add(this.btLogIn);
             this.panelIngreso.Controls.Add(this.btRegistro);
             this.panelIngreso.Controls.Add(this.label1);
-            this.panelIngreso.Location = new System.Drawing.Point(66, 22);
+            this.panelIngreso.Location = new System.Drawing.Point(88, 27);
+            this.panelIngreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelIngreso.Name = "panelIngreso";
-            this.panelIngreso.Size = new System.Drawing.Size(654, 401);
+            this.panelIngreso.Size = new System.Drawing.Size(872, 494);
             this.panelIngreso.TabIndex = 3;
             this.panelIngreso.Visible = false;
             // 
             // btLogIn
             // 
             this.btLogIn.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogIn.Location = new System.Drawing.Point(245, 256);
+            this.btLogIn.Location = new System.Drawing.Point(327, 315);
+            this.btLogIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btLogIn.Name = "btLogIn";
-            this.btLogIn.Size = new System.Drawing.Size(167, 79);
+            this.btLogIn.Size = new System.Drawing.Size(223, 97);
             this.btLogIn.TabIndex = 5;
             this.btLogIn.Text = "Iniciar Sesión";
             this.btLogIn.UseVisualStyleBackColor = true;
@@ -60,9 +62,10 @@
             // btRegistro
             // 
             this.btRegistro.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRegistro.Location = new System.Drawing.Point(245, 179);
+            this.btRegistro.Location = new System.Drawing.Point(327, 220);
+            this.btRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btRegistro.Name = "btRegistro";
-            this.btRegistro.Size = new System.Drawing.Size(167, 42);
+            this.btRegistro.Size = new System.Drawing.Size(223, 52);
             this.btRegistro.TabIndex = 4;
             this.btRegistro.Text = "Registrarse";
             this.btRegistro.UseVisualStyleBackColor = true;
@@ -71,18 +74,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 65);
+            this.label1.Location = new System.Drawing.Point(147, 80);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(435, 50);
+            this.label1.Size = new System.Drawing.Size(553, 63);
             this.label1.TabIndex = 3;
             this.label1.Text = "RPG Character Manager";
             // 
             // RPGCMForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 450);
+            this.ClientSize = new System.Drawing.Size(1047, 554);
             this.Controls.Add(this.panelIngreso);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RPGCMForm";
             this.Text = "RPG Character Manager";
             this.panelIngreso.ResumeLayout(false);

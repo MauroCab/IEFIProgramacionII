@@ -41,11 +41,11 @@
             this.panelIngreso.Controls.Add(this.btLogIn);
             this.panelIngreso.Controls.Add(this.btRegistro);
             this.panelIngreso.Controls.Add(this.label1);
+            this.panelIngreso.Enabled = false;
             this.panelIngreso.Location = new System.Drawing.Point(66, 22);
             this.panelIngreso.Name = "panelIngreso";
             this.panelIngreso.Size = new System.Drawing.Size(654, 401);
             this.panelIngreso.TabIndex = 3;
-            this.panelIngreso.Visible = false;
             // 
             // btLogIn
             // 

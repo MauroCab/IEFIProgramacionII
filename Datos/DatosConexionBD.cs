@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +12,13 @@ namespace Datos
     {
         public DatosConexionBD()
         {
-            conexion = new OleDbConnection(cadenaConexion);
+            conexion = new SqlConnection(cadenaConexion);
         }
 
-        public OleDbConnection conexion;
-        public string cadenaConexion = @"Provider=Microsoft.ACE.OLEDB.12.0;Data
-        Source=F:\EjemploBD.accdb;Persist Security Info=True";
+        public SqlConnection conexion;
+        public string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;
+                                        AttachDbFilename=C:\Users\piero\RPG_CharMngr.mdf;
+                                        Integrated Security=True;Connect Timeout=60";
 
         public void Abrirconexion()
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 using Entidades;
 
 namespace Datos
@@ -22,7 +22,7 @@ namespace Datos
             if (accion == "Modificar")
                 orden = "update Personajes set Nombre='" + objPersonaje.Nombre + "'where Id = " + objPersonaje.Id + "; ";
             // falta la orden de borrar
-            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion);
             try
             {
                 Abrirconexion();
@@ -47,9 +47,9 @@ namespace Datos
                 orden = "select * from Personajes where Id = " + int.Parse(cual) + ";";
             else
                 orden = "select * from Personajes;";
-            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
-            OleDbDataAdapter da = new OleDbDataAdapter();
+            SqlDataAdapter da = new SqlDataAdapter();
             try
             {
                 Abrirconexion();

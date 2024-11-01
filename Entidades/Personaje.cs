@@ -49,7 +49,7 @@ namespace Entidades
 		private Item armaduraEq;
 		private Item armaEq;
 		private Item escudoEq;
-		private List<Item> Inventario;
+		private List<Item> inventario;
 		private List<string> efectos;
 		private DateTime fechaCreacion;
         #endregion
@@ -70,7 +70,7 @@ namespace Entidades
 			armaduraEq = new Item();
 			armaEq = new Item();
 			escudoEq = new Item();
-			Inventario = new List<Item>();
+			inventario = new List<Item>();
         }
         #endregion
 
@@ -155,7 +155,12 @@ namespace Entidades
             get { return escudoEq; }
             set { escudoEq = value; }
         }
-		public List<string> Efectos
+        public List<Item> Inventario
+        {
+            get { return inventario; }
+            set { inventario = value; }
+        }
+        public List<string> Efectos
 		{
 			get { return efectos; }
 			set { efectos = value; }

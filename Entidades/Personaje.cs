@@ -49,6 +49,7 @@ namespace Entidades
 		private Item armaduraEq;
 		private Item armaEq;
 		private Item escudoEq;
+		private List<Item> Inventario;
 		private List<string> efectos;
 		private DateTime fechaCreacion;
         #endregion
@@ -56,7 +57,20 @@ namespace Entidades
         #region Constructor
         public Personaje()
         {
-            
+            /*Item casco = new Item();
+            Item pant = new Item();
+            Item guantes = new Item();
+            Item armadura = new Item();
+            Item arma = new Item();
+            Item escudo = new Item();
+            Item item = new Item();*/
+			cascoEq = new Item();
+			pantEq = new Item();
+			guantesEq = new Item();
+			armaduraEq = new Item();
+			armaEq = new Item();
+			escudoEq = new Item();
+			Inventario = new List<Item>();
         }
         #endregion
 

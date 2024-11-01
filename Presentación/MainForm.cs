@@ -15,6 +15,8 @@ namespace Presentación
         public RPGCMForm()
         {
             InitializeComponent();
+            //TabsDiseño.ItemSize = new System.Drawing.Size(0, 1);
+            TabsDiseño.Dock = DockStyle.Fill;
         }
 
         bool ExisteCuenta;
@@ -36,9 +38,54 @@ namespace Presentación
             IForm.Focus();
         }
 
-        private void panelIngreso_Paint(object sender, PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
+        }
+
+        //me cansé de borrar metodos
+        #region metodos creados sin querer
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabCreación_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNivelInicial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private void btCrearPersonaje_Click(object sender, EventArgs e)
+        {
+            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabCreacion"];
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
     }
+    
 }

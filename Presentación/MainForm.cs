@@ -19,8 +19,21 @@ namespace Presentación
             TabsDiseño.Dock = DockStyle.Fill;
         }
 
-        bool ExisteCuenta;
+        void formHijo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            IngresarForm formHijo = sender as IngresarForm;
+            //Recuperar el valor de propiedades definidas en Form2
+            string NombreUsuario = formHijo.username;
+            if (NombreUsuario != "")
+            { 
+                //Codigo que haga Get del usuario por su Username
+                TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
+                lblUsername.Text = NombreUsuario;
+            }
+            
+        }
 
+        bool ExisteCuenta;
         private void btRegistro_Click(object sender, EventArgs e)
         {
             ExisteCuenta = false; 
@@ -38,11 +51,7 @@ namespace Presentación
             IForm.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
-        }
-
+        
         //me cansé de borrar metodos
         #region metodos creados sin querer
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +84,47 @@ namespace Presentación
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TabPJItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         private void btCrearPersonaje_Click(object sender, EventArgs e)
@@ -82,10 +132,7 @@ namespace Presentación
             TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabCreacion"];
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
     
 }

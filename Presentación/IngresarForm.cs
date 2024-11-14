@@ -136,15 +136,16 @@ namespace Presentación
             if (validacionCorrecta)
             {
                 int IdResultado = objNegUsuario.BuscarUsuario(selectEmail, selectContrasena);
-                if (IdResultado != 0)
-                {
-                    UserId = IdResultado;
-                    return true;
-                }
-                else
+                if (IdResultado == 0)
                 {
                     MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK);
                     return false;
+                    
+                }
+                else
+                {
+                    UserId = IdResultado;
+                    return true;
                 }
 
             }
@@ -156,7 +157,7 @@ namespace Presentación
         #region Creación de Usuario
         private void CargaDeDatos()
         {
-            objEntUsuario.Id = 1;
+            
             objEntUsuario.Email = tbxEmailSU.Text;
             objEntUsuario.Nombre = tbxNombreUsuario.Text;
             objEntUsuario.Contrasena = tbxContrasenaSU.Text;
@@ -177,5 +178,6 @@ namespace Presentación
         }
         #endregion
 
+        
     }
 }

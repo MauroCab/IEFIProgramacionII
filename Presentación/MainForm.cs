@@ -21,20 +21,30 @@ namespace Presentación
             TabsDiseño.Dock = DockStyle.Fill;
         }
 
-        private NegUsuarios objNegUsuarios;
-        private Usuario UsuarioLogueado;
-        void formHijo_FormClosed(object sender, FormClosedEventArgs e)
+        
+        private Usuario UsuarioLogueado { get; set; }
+
+
+        void IForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            IngresarForm formHijo = sender as IngresarForm;
+            IngresarForm IForm = sender as IngresarForm;
             //Recuperar el valor de propiedades definidas en Form2
-            int IdABuscar = formHijo.UserId;
-
-            UsuarioLogueado = objNegUsuarios.BuscarUsuarioById(IdABuscar);
-
-            //Codigo que haga Get del usuario por su Username
-            lblUsername.Text = UsuarioLogueado.Nombre;
-            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
+            int IdABuscar = IForm.UserId;
+            NegUsuarios objNegUsuarios = new NegUsuarios();
             
+            //Codigo que hace Get del usuario por su id
+            UsuarioLogueado = objNegUsuarios.BuscarUsuarioById(IdABuscar);
+            
+
+            if (UsuarioLogueado != null)
+            {
+                lblUsername.Text = UsuarioLogueado.Nombre;
+                TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el usuario.");
+            }
         }
 
         bool ExisteCuenta;
@@ -44,14 +54,16 @@ namespace Presentación
         {
             ExisteCuenta = false; 
             IngresarForm IForm = new IngresarForm(ExisteCuenta);
+            IForm.FormClosed += IForm_FormClosed;
             IForm.ShowDialog();
             IForm.Focus();
         }
 
         private void btLogIn_Click(object sender, EventArgs e)
         {
-            ExisteCuenta = true; 
+            ExisteCuenta = true;
             IngresarForm IForm = new IngresarForm(ExisteCuenta);
+            IForm.FormClosed += IForm_FormClosed;
             IForm.ShowDialog();
             IForm.Focus();
         }

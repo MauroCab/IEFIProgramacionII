@@ -49,7 +49,7 @@ namespace Entidades
 
         public string Contrasena
         {
-            get { return "*******"; }
+            get { return contrasena; }
             set { contrasena = value; }
         }
 

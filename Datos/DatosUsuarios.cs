@@ -72,16 +72,17 @@ namespace Datos
 
         public int BuscarUsuario(string email, string contrasena)
         {
-            string orden = "Select NombreUsuario from Usuarios where Email = '" + email + "' and Contrasena = '"+ contrasena +"';";
-            
+            string orden = "SELECT UsuarioId FROM Usuarios WHERE Email = @Email AND Contrasena = @Contrasena;";
+
             SqlCommand cmd = new SqlCommand(orden, conexion);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Contrasena", contrasena);
+
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
             {
                 Abrirconexion();
-                cmd.ExecuteNonQuery();
-                da.SelectCommand = cmd;
                 da.Fill(ds);
             }
             catch (Exception e)
@@ -94,38 +95,40 @@ namespace Datos
                 cmd.Dispose();
             }
 
-            DataTable tabla = ds.Tables[0];
-
-            DataRow fila = tabla.Rows[0];
-
-            if (fila["UsuarioId"] != DBNull.Value)
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                string IdUsuario = fila["Usuario"].ToString();
+                DataTable tabla = ds.Tables[0];
 
-                int id = int.Parse(IdUsuario);
+                DataRow fila = tabla.Rows[0];
 
-                return id;
+                if (fila["UsuarioId"] != DBNull.Value)
+                {
+                    string IdUsuario = fila["UsuarioId"].ToString();
+
+                    int id = int.Parse(IdUsuario);
+
+                    return id;
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            else
-            {
-                return 0;
-            }
 
-            
+            return 0;
         }
 
         public Usuario BuscarUsuarioById(int id)
         {
-            string orden = "Select * from Usuarios where UsuarioId = " + id + ";";
+            string orden = "SELECT * FROM Usuarios WHERE UsuarioId = @ID ";
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
+            cmd.Parameters.AddWithValue("@ID", id);
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
             {
                 Abrirconexion();
-                cmd.ExecuteNonQuery();
-                da.SelectCommand = cmd;
                 da.Fill(ds);
             }
             catch (Exception e)
@@ -138,18 +141,23 @@ namespace Datos
                 cmd.Dispose();
             }
 
-            DataTable tabla = ds.Tables[0];
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                DataTable tabla = ds.Tables[0];
 
-            DataRow fila = tabla.Rows[0];
+                DataRow fila = tabla.Rows[0];
 
-            string IdUsuarioString = fila["UsuarioId"].ToString();
+                string IdUsuarioString = fila["UsuarioId"].ToString();
 
-            int IdUsuario = int.Parse(IdUsuarioString);
-            string NombreUsuario = fila["NombreUsuario"].ToString();
-            
-            Usuario usuario = new Usuario(IdUsuario, NombreUsuario);
+                int IdUsuario = int.Parse(IdUsuarioString);
+                string NombreUsuario = fila["NombreUsuario"].ToString();
 
-            return usuario;
+                Usuario usuario = new Usuario(IdUsuario, NombreUsuario);
+
+                return usuario;
+            }
+            else
+                return null;
         }
 
     }

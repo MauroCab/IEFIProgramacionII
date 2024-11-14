@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Negocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,28 +21,31 @@ namespace Presentación
             TabsDiseño.Dock = DockStyle.Fill;
         }
 
+        private NegUsuarios objNegUsuarios;
+        private Usuario UsuarioLogueado;
         void formHijo_FormClosed(object sender, FormClosedEventArgs e)
         {
             IngresarForm formHijo = sender as IngresarForm;
             //Recuperar el valor de propiedades definidas en Form2
-            string NombreUsuario = formHijo.username;
-            if (NombreUsuario != "")
-            { 
-                //Codigo que haga Get del usuario por su Username
-                TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
-                lblUsername.Text = NombreUsuario;
-            }
+            int IdABuscar = formHijo.UserId;
+
+            UsuarioLogueado = objNegUsuarios.BuscarUsuarioById(IdABuscar);
+
+            //Codigo que haga Get del usuario por su Username
+            lblUsername.Text = UsuarioLogueado.Nombre;
+            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
             
         }
 
         bool ExisteCuenta;
+
+        #region Botones de Inicio
         private void btRegistro_Click(object sender, EventArgs e)
         {
             ExisteCuenta = false; 
             IngresarForm IForm = new IngresarForm(ExisteCuenta);
             IForm.ShowDialog();
             IForm.Focus();
-            
         }
 
         private void btLogIn_Click(object sender, EventArgs e)
@@ -50,8 +55,8 @@ namespace Presentación
             IForm.ShowDialog();
             IForm.Focus();
         }
+        #endregion 
 
-        
         //me cansé de borrar metodos
         #region metodos creados sin querer
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

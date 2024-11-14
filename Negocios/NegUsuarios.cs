@@ -21,5 +21,15 @@ namespace Negocios
         {
             return objDatosUsuarios.listadoUsuarios(cual);
         }
+
+        public int BuscarUsuario(string email, string contrasena)
+        {
+            return objDatosUsuarios.BuscarUsuario(email, contrasena);
+        }
+
+        public Usuario BuscarUsuarioById(int id)
+        {
+            return objDatosUsuarios.BuscarUsuarioById(id);
+        }
     }
 }

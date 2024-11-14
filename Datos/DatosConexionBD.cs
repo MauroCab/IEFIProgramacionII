@@ -17,8 +17,18 @@ namespace Datos
 
         public SqlConnection conexion;
         public string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;
-                                        AttachDbFilename=C:\Users\piero\RPG_CharMngr.mdf;
-                                        Integrated Security=True;Connect Timeout=60";
+                                        AttachDbFilename=D:\Data\a\DB-Prog\RPG_CharMngr.mdf";
+
+        #region Cadenas de Conexion
+        //CadenaConexion de Tiago: @"Data Source=(LocalDB)\MSSQLLocalDB;
+        // AttachDbFilename=C:\Users\piero\RPG_CharMngr.mdf;
+        // Integrated Security = True; Connect Timeout = 60";
+
+        //CadenaConexion de Mauro: @"Data Source=(LocalDB)\MSSQLLocalDB;
+        // AttachDbFilename=D:\Data\a\DB-Prog\RPG_CharMngr.mdf;
+        // Integrated Security = True; Connect Timeout = 60";
+        #endregion
+
         public void Abrirconexion()
         {
             try

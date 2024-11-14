@@ -15,10 +15,18 @@ namespace Entidades
         private string contrasena;
         #endregion
 
-        #region Constructor
+        #region Constructores
         public Usuario()
         {
 
+        }
+
+        public Usuario(int id, string username)
+        {
+            Id = id;
+            Nombre = username;
+            Email = "";
+            Contrasena = "";
         }
         #endregion
 
@@ -41,7 +49,7 @@ namespace Entidades
 
         public string Contrasena
         {
-            get { return contrasena; }
+            get { return "*******"; }
             set { contrasena = value; }
         }
 

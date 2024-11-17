@@ -31,6 +31,7 @@ namespace Presentación
         /// Es el dato que despues le paso al MainForm para hacer select y trabajar con los datos del usuario con esta Id
         /// </summary>
         public int UserId { get; set; }
+        
         public NegUsuarios objNegUsuario = new NegUsuarios();
         public Usuario objEntUsuario = new Usuario();
         #endregion 
@@ -80,7 +81,7 @@ namespace Presentación
                 CrearUsuario();
                 bool pepe = EnvioIdConValidacionLogIn(CamposValidados, tbxEmailSU.Text, tbxContrasenaSU.Text);
                 MessageBox.Show("Cuenta creada correctamente", "Usuario Cargado", MessageBoxButtons.OK);
-                this.Close();
+                this.CerrarForm();
             }
            
         }
@@ -103,8 +104,17 @@ namespace Presentación
                 CamposValidados = false;
             }
 
-            //[Código para buscar en la base de datos la contraseña del mail especificado
-            //y comparar si es la misma que se guardó]
+            if(!objNegUsuario.EmailExiste(tbxEmailLI.Text))
+            {
+                MessageBox.Show("Correo electrónico especificado no encontrado");
+                CamposValidados = false;
+            }
+            else if(!(tbxContrasenaLI.Text == objNegUsuario.GetContrasena(tbxEmailLI.Text)))
+            {
+                MessageBox.Show("Contraseña Incorrecta");
+                CamposValidados = false;
+            }
+            
 
             #endregion
 
@@ -113,7 +123,7 @@ namespace Presentación
                 bool pepe = EnvioIdConValidacionLogIn(CamposValidados, tbxEmailLI.Text, tbxContrasenaLI.Text);
                 
                 if(pepe)
-                this.Close();
+                this.CerrarForm();
             }
             
         }
@@ -176,8 +186,60 @@ namespace Presentación
             }
             
         }
+
         #endregion
 
-        
+        private void linklblRecuperacion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            VerificacionIdentidadForm VIF = new VerificacionIdentidadForm("Email");
+            VIF.EventoCerrar += VIFForm_Cerrado;
+            VIF.ShowDialog();
+
+        }
+
+        public void VIFForm_Cerrado(object sender, EventArgs e)
+        {
+            VerificacionIdentidadForm VIF = sender as VerificacionIdentidadForm;
+            
+            int id = objNegUsuario.BuscarUsuario(VIF.UserEmail);
+
+            if(id != 0)
+            {
+                int nGrabados = -1;
+                Usuario usuario = objNegUsuario.BuscarUsuarioById(id);
+                usuario.Contrasena = VIF.NuevaContrasena;
+
+                nGrabados = objNegUsuario.abmUsuarios("RecuperaciónContraseña", usuario);
+                if (nGrabados == -1)
+                {
+                    MessageBox.Show("No pudo actualizarse la contraseña");
+
+                }
+            }
+            else
+                MessageBox.Show("El Email no pertenece a un usuario registrado");
+
+
+
+        }
+
+        //Evento de cerrar con otro nombre (usado para que al cerrar de forma normal con
+        //el X del form o el boton cancelar no ocurran ciertas validaciones, es decir para
+        //que no salga un text box avisando de error)
+        #region Cierre Propio
+        public delegate void DelegadoCerrar(object sender, EventArgs e);
+        public event DelegadoCerrar EventoCerrar;
+        protected virtual void AlCerrar()
+        {
+            EventoCerrar?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void CerrarForm()
+        {
+            this.Close();
+            AlCerrar(); // Disparar el evento
+        }
+        #endregion
+
     }
 }

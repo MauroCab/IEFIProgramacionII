@@ -21,12 +21,12 @@ namespace Entidades
 
         }
 
-        public Usuario(int id, string username)
+        public Usuario(int id, string username, string mail, string password)
         {
             Id = id;
             Nombre = username;
-            Email = "";
-            Contrasena = "";
+            Email = mail;
+            Contrasena = password;
         }
         #endregion
 

@@ -43,6 +43,7 @@
             this.tbxNombreUsuario = new System.Windows.Forms.TextBox();
             this.tbxEmailSU = new System.Windows.Forms.TextBox();
             this.tabIniciarSesion = new System.Windows.Forms.TabPage();
+            this.linklblRecuperacion = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkSignUp = new System.Windows.Forms.LinkLabel();
             this.btAceptarLI = new System.Windows.Forms.Button();
@@ -173,6 +174,7 @@
             // 
             this.tbxContrasena2.Location = new System.Drawing.Point(26, 288);
             this.tbxContrasena2.Name = "tbxContrasena2";
+            this.tbxContrasena2.PasswordChar = '•';
             this.tbxContrasena2.Size = new System.Drawing.Size(234, 27);
             this.tbxContrasena2.TabIndex = 3;
             // 
@@ -180,6 +182,7 @@
             // 
             this.tbxContrasenaSU.Location = new System.Drawing.Point(26, 224);
             this.tbxContrasenaSU.Name = "tbxContrasenaSU";
+            this.tbxContrasenaSU.PasswordChar = '•';
             this.tbxContrasenaSU.Size = new System.Drawing.Size(234, 27);
             this.tbxContrasenaSU.TabIndex = 2;
             // 
@@ -199,6 +202,7 @@
             // 
             // tabIniciarSesion
             // 
+            this.tabIniciarSesion.Controls.Add(this.linklblRecuperacion);
             this.tabIniciarSesion.Controls.Add(this.label9);
             this.tabIniciarSesion.Controls.Add(this.linkSignUp);
             this.tabIniciarSesion.Controls.Add(this.btAceptarLI);
@@ -214,6 +218,18 @@
             this.tabIniciarSesion.TabIndex = 1;
             this.tabIniciarSesion.Text = "Iniciar Sesión";
             this.tabIniciarSesion.UseVisualStyleBackColor = true;
+            // 
+            // linklblRecuperacion
+            // 
+            this.linklblRecuperacion.AutoSize = true;
+            this.linklblRecuperacion.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F);
+            this.linklblRecuperacion.Location = new System.Drawing.Point(23, 263);
+            this.linklblRecuperacion.Name = "linklblRecuperacion";
+            this.linklblRecuperacion.Size = new System.Drawing.Size(149, 19);
+            this.linklblRecuperacion.TabIndex = 23;
+            this.linklblRecuperacion.TabStop = true;
+            this.linklblRecuperacion.Text = "Olvide mi contraseña";
+            this.linklblRecuperacion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblRecuperacion_LinkClicked);
             // 
             // label9
             // 
@@ -253,7 +269,7 @@
             this.tbxContrasenaLI.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F);
             this.tbxContrasenaLI.Location = new System.Drawing.Point(25, 160);
             this.tbxContrasenaLI.Name = "tbxContrasenaLI";
-            this.tbxContrasenaLI.PasswordChar = '*';
+            this.tbxContrasenaLI.PasswordChar = '•';
             this.tbxContrasenaLI.Size = new System.Drawing.Size(234, 27);
             this.tbxContrasenaLI.TabIndex = 19;
             // 
@@ -337,5 +353,6 @@
         private System.Windows.Forms.LinkLabel linkLogIn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.LinkLabel linkSignUp;
+        private System.Windows.Forms.LinkLabel linklblRecuperacion;
     }
 }

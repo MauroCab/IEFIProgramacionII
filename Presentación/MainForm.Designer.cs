@@ -133,9 +133,9 @@
             this.lblCreacionAtaque = new System.Windows.Forms.Label();
             this.lblCreacionDefensa = new System.Windows.Forms.Label();
             this.lblCreacionEnergia = new System.Windows.Forms.Label();
-            this.lblCreaciónSalud = new System.Windows.Forms.Label();
+            this.lblCreacionSalud = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btCrearPJ = new System.Windows.Forms.Button();
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
@@ -154,8 +154,8 @@
             this.lblCreacionNivel = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbxClasePJ = new System.Windows.Forms.ComboBox();
+            this.tbxNombrePJ = new System.Windows.Forms.TextBox();
             this.label75 = new System.Windows.Forms.Label();
             this.tabUsuario = new System.Windows.Forms.TabPage();
             this.panelUpdate = new System.Windows.Forms.Panel();
@@ -1273,9 +1273,9 @@
             this.tabCreacion.Controls.Add(this.lblCreacionAtaque);
             this.tabCreacion.Controls.Add(this.lblCreacionDefensa);
             this.tabCreacion.Controls.Add(this.lblCreacionEnergia);
-            this.tabCreacion.Controls.Add(this.lblCreaciónSalud);
+            this.tabCreacion.Controls.Add(this.lblCreacionSalud);
             this.tabCreacion.Controls.Add(this.button6);
-            this.tabCreacion.Controls.Add(this.button7);
+            this.tabCreacion.Controls.Add(this.btCrearPJ);
             this.tabCreacion.Controls.Add(this.label57);
             this.tabCreacion.Controls.Add(this.label58);
             this.tabCreacion.Controls.Add(this.label59);
@@ -1294,8 +1294,8 @@
             this.tabCreacion.Controls.Add(this.lblCreacionNivel);
             this.tabCreacion.Controls.Add(this.label73);
             this.tabCreacion.Controls.Add(this.label74);
-            this.tabCreacion.Controls.Add(this.comboBox2);
-            this.tabCreacion.Controls.Add(this.textBox3);
+            this.tabCreacion.Controls.Add(this.cbxClasePJ);
+            this.tabCreacion.Controls.Add(this.tbxNombrePJ);
             this.tabCreacion.Controls.Add(this.label75);
             this.tabCreacion.Location = new System.Drawing.Point(4, 34);
             this.tabCreacion.Name = "tabCreacion";
@@ -1405,15 +1405,15 @@
             this.lblCreacionEnergia.TabIndex = 102;
             this.lblCreacionEnergia.Text = "-";
             // 
-            // lblCreaciónSalud
+            // lblCreacionSalud
             // 
-            this.lblCreaciónSalud.AutoSize = true;
-            this.lblCreaciónSalud.Font = new System.Drawing.Font("Palatino Linotype", 12F);
-            this.lblCreaciónSalud.Location = new System.Drawing.Point(455, 109);
-            this.lblCreaciónSalud.Name = "lblCreaciónSalud";
-            this.lblCreaciónSalud.Size = new System.Drawing.Size(15, 22);
-            this.lblCreaciónSalud.TabIndex = 101;
-            this.lblCreaciónSalud.Text = "-";
+            this.lblCreacionSalud.AutoSize = true;
+            this.lblCreacionSalud.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.lblCreacionSalud.Location = new System.Drawing.Point(455, 109);
+            this.lblCreacionSalud.Name = "lblCreacionSalud";
+            this.lblCreacionSalud.Size = new System.Drawing.Size(15, 22);
+            this.lblCreacionSalud.TabIndex = 101;
+            this.lblCreacionSalud.Text = "-";
             // 
             // button6
             // 
@@ -1427,16 +1427,17 @@
             this.button6.Text = "Cancelar";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btCrearPJ
             // 
-            this.button7.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Bold);
-            this.button7.Location = new System.Drawing.Point(569, 334);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 42);
-            this.button7.TabIndex = 99;
-            this.button7.Text = "Crear Personaje";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btCrearPJ.Font = new System.Drawing.Font("Palatino Linotype", 15F, System.Drawing.FontStyle.Bold);
+            this.btCrearPJ.Location = new System.Drawing.Point(569, 334);
+            this.btCrearPJ.Margin = new System.Windows.Forms.Padding(4);
+            this.btCrearPJ.Name = "btCrearPJ";
+            this.btCrearPJ.Size = new System.Drawing.Size(164, 42);
+            this.btCrearPJ.TabIndex = 99;
+            this.btCrearPJ.Text = "Crear Personaje";
+            this.btCrearPJ.UseVisualStyleBackColor = true;
+            this.btCrearPJ.Click += new System.EventHandler(this.btCrearPJ_Click);
             // 
             // label57
             // 
@@ -1618,29 +1619,30 @@
             this.label74.TabIndex = 81;
             this.label74.Text = "Clase";
             // 
-            // comboBox2
+            // cbxClasePJ
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbxClasePJ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxClasePJ.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxClasePJ.FormattingEnabled = true;
+            this.cbxClasePJ.Items.AddRange(new object[] {
             "Mago",
             "Guerrero",
             "Ladrón",
             "Clérigo",
             "Caballero"});
-            this.comboBox2.Location = new System.Drawing.Point(137, 114);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(185, 26);
-            this.comboBox2.TabIndex = 80;
+            this.cbxClasePJ.Location = new System.Drawing.Point(137, 114);
+            this.cbxClasePJ.Name = "cbxClasePJ";
+            this.cbxClasePJ.Size = new System.Drawing.Size(185, 26);
+            this.cbxClasePJ.TabIndex = 80;
+            this.cbxClasePJ.SelectionChangeCommitted += new System.EventHandler(this.cbxClasePJ_SelectionChangeCommitted);
             // 
-            // textBox3
+            // tbxNombrePJ
             // 
-            this.textBox3.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(137, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 25);
-            this.textBox3.TabIndex = 79;
+            this.tbxNombrePJ.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxNombrePJ.Location = new System.Drawing.Point(137, 79);
+            this.tbxNombrePJ.Name = "tbxNombrePJ";
+            this.tbxNombrePJ.Size = new System.Drawing.Size(185, 25);
+            this.tbxNombrePJ.TabIndex = 79;
             // 
             // label75
             // 
@@ -1946,9 +1948,9 @@
         private System.Windows.Forms.Label lblCreacionAtaque;
         private System.Windows.Forms.Label lblCreacionDefensa;
         private System.Windows.Forms.Label lblCreacionEnergia;
-        private System.Windows.Forms.Label lblCreaciónSalud;
+        private System.Windows.Forms.Label lblCreacionSalud;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btCrearPJ;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
@@ -1967,8 +1969,8 @@
         private System.Windows.Forms.Label lblCreacionNivel;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cbxClasePJ;
+        private System.Windows.Forms.TextBox tbxNombrePJ;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label lblClase;
         private System.Windows.Forms.Label lblNombre;

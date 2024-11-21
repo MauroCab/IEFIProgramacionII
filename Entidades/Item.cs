@@ -47,6 +47,11 @@ namespace Entidades
         {
             
         }
+        public Item()
+        {
+
+        }
+
         #endregion
 
         #region propiedades/encapsulamiento

@@ -17,9 +17,9 @@ namespace Negocios
         {
             return objDatosItems.abmItems(accion, objItem);
         }
-        public DataSet listadoItems(string cual)
+        public DataSet listadoItemsEnInventario(int id)
         {
-            return objDatosItems.listadoItems(cual);
+            return objDatosItems.listadoItemsEnInventario(id);
         }
     }
 }

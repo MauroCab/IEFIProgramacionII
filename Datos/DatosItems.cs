@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.ComponentModel;
 
 namespace Datos
 {
@@ -40,13 +41,60 @@ namespace Datos
             return resultado;
         }
 
-        public DataSet listadoItems(string cual)
+        public void AgregarTodosLosItems(int idPersonaje, List<Item> items)
+        {
+            try
+            {
+                foreach (Item item in items)
+                {
+                    AgregarItemAlInventario(idPersonaje, item.Id);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al agregar items al inventario", e);
+            }
+            
+        }
+
+        /// <summary>
+        /// Inserta items al inventario del personaje recien creado
+        /// </summary>
+        /// <param name="idPersonaje"></param>
+        public void AgregarItemAlInventario(int idPersonaje, int idItem)
+        {
+            int resultado = -1;
+            string orden = string.Empty;
+
+            orden = "INSERT INTO Inventario (PersonajeId, ItemId, Cantidad, Equipado)" +
+                " VALUES (" + idPersonaje + "," + idItem + ", 1, true);";
+            
+            // falta la orden de borrar
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            try
+            {
+                Abrirconexion();
+                resultado = cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al tratar de guardar,borrar o modificar de Items", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            
+
+        }
+
+        public DataSet listadoItemsEnInventario(int idPersonaje)
         {
             string orden = string.Empty;
-            if (cual != "Todos")
-                orden = "select * from Items where Id = " + int.Parse(cual) + ";";
-            else
-                orden = "select * from Items;";
+            
+            orden = "select * from Inventario where PersonajeId = " + idPersonaje + " AND Equipado = " + false + ";";
+            
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -68,6 +116,8 @@ namespace Datos
             }
             return ds;
         }
+
+
 
     }
 }

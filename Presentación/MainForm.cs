@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Presentación
 {
@@ -361,9 +362,139 @@ namespace Presentación
 
 
 
+
+
         #endregion
 
         
+
+        private Personaje CargarDatosPJ()
+        {
+            Personaje pj = new Personaje();
+            pj.IdUsuario = UsuarioLogueado.Id;
+            pj.Nombre = tbxNombrePJ.Text;
+            pj.Clase = cbxClasePJ.Text;
+            pj.Nivel = int.Parse(lblCreacionNivel.Text);
+            pj.Salud = int.Parse(lblCreacionSalud.Text);
+            pj.Energia = int.Parse(lblCreacionEnergia.Text);
+            pj.Ataque = int.Parse(lblCreacionAtaque.Text);
+            pj.Defensa = int.Parse(lblCreacionDefensa.Text);
+            pj.Evasion = int.Parse(lblCreacionEvasion.Text);
+
+
+            lblCreacionArmadura.Text
+            lblCreacionGuantes.Text
+            lblCreacionPantalones.
+            lblCreacionArma.Text
+            lblCreacionEscudo.Text
+
+        }
+
+        private void btCrearPJ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxClasePJ_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbxClasePJ.Text == "Mago")
+            {
+                lblCreacionNivel.Text = "1";
+                lblCreacionCasco.Text = "Sombrero de Estrellas";
+                lblCreacionArmadura.Text = "Túnica del Archimago";
+                lblCreacionGuantes.Text = "Guantes de Cristal Arcano";
+                lblCreacionPantalones.Text = "Calzas de la Nebulosa";
+                lblCreacionArma.Text = "Báculo de Llamas Eternas";
+                lblCreacionEscudo.Text = "Orbe del Vidente";
+
+                lblCreacionSalud.Text = "50";
+                lblCreacionEnergia.Text = "150";
+                lblCreacionAtaque.Text = "20";
+                lblCreacionDefensa.Text = "10";
+                lblCreacionEvasion.Text = "15";
+            }
+            if (cbxClasePJ.Text == "Guerrero")
+            {
+                lblCreacionNivel.Text = "1";
+                lblCreacionCasco.Text = "Yelmo del Inquebrantable";
+                lblCreacionArmadura.Text = "Coraza del Centurión";
+                lblCreacionGuantes.Text = "Guanteletes de Hierro Sangriento";
+                lblCreacionPantalones.Text = "Grebas de la Fortaleza";
+                lblCreacionArma.Text = "Espada de la Tempestad";
+                lblCreacionEscudo.Text = "Escudo del Guardián";
+
+                lblCreacionSalud.Text = "120";
+                lblCreacionEnergia.Text = "50";
+                lblCreacionAtaque.Text = "30";
+                lblCreacionDefensa.Text = "40";
+                lblCreacionEvasion.Text = "5";
+            }
+            if (cbxClasePJ.Text == "Ladrón")
+            {
+                lblCreacionNivel.Text = "1";
+                lblCreacionCasco.Text = "Capucha del Sombrío";
+                lblCreacionArmadura.Text = "Chaqueta de Sombras";
+                lblCreacionGuantes.Text = "Guantes del Ratero";
+                lblCreacionPantalones.Text = "Calzas del Acechador";
+                lblCreacionArma.Text = "Daga del Alba Silenciosa";
+                lblCreacionEscudo.Text = "Capa del Escapista";
+
+                lblCreacionSalud.Text = "80";
+                lblCreacionEnergia.Text = "100";
+                lblCreacionAtaque.Text = "25";
+                lblCreacionDefensa.Text = "15";
+                lblCreacionEvasion.Text = "30";
+            }
+            if (cbxClasePJ.Text == "Clérigo")
+            {
+                lblCreacionNivel.Text = "1";
+                lblCreacionCasco.Text = "Corona del Celestial";
+                lblCreacionArmadura.Text = "Manto de la Devoción";
+                lblCreacionGuantes.Text = "Manoplas del Sanador";
+                lblCreacionPantalones.Text = "Sandalias del Protector";
+                lblCreacionArma.Text = "Maza de la Penitencia";
+                lblCreacionEscudo.Text = "Escudo del Redentor";
+
+                lblCreacionSalud.Text = "70";
+                lblCreacionEnergia.Text = "90";
+                lblCreacionAtaque.Text = "18";
+                lblCreacionDefensa.Text = "20";
+                lblCreacionEvasion.Text = "10";
+            }
+            if (cbxClasePJ.Text == "Caballero")
+            {
+                lblCreacionNivel.Text = "1";
+                lblCreacionCasco.Text = "Casco del Paladín Justiciero";
+                lblCreacionArmadura.Text = "Armadura del Cruzado";
+                lblCreacionGuantes.Text = "Guantes de Acero Bendito";
+                lblCreacionPantalones.Text = "Botas del Centinela";
+                lblCreacionArma.Text = "Espada de la Luz Sagrada";
+                lblCreacionEscudo.Text = "Escudo del León Dorado";
+
+                lblCreacionSalud.Text = "120";
+                lblCreacionEnergia.Text = "40";
+                lblCreacionAtaque.Text = "30";
+                lblCreacionDefensa.Text = "50";
+                lblCreacionEvasion.Text = "10";
+            }
+            if (cbxClasePJ.Text == "")
+            {
+                lblCreacionNivel.Text = "0";
+                lblCreacionCasco.Text = "-";
+                lblCreacionArmadura.Text = "-";
+                lblCreacionGuantes.Text = "-";
+                lblCreacionPantalones.Text = "-";
+                lblCreacionArma.Text = "-";
+                lblCreacionEscudo.Text = "-";
+
+                lblCreacionSalud.Text = "0";
+                lblCreacionEnergia.Text = "0";
+                lblCreacionAtaque.Text = "0";
+                lblCreacionDefensa.Text = "0";
+                lblCreacionEvasion.Text = "0";
+            }
+
+        }
     }
 
 }

@@ -17,7 +17,8 @@ namespace Datos
 
         public SqlConnection conexion;
         public string cadenaConexion = @"Data Source=(LocalDB)\MSSQLLocalDB;
-                                        AttachDbFilename=D:\Data\a\DB-Prog\RPG_CharMngr.mdf";
+        AttachDbFilename=C:\Users\piero\RPG_CharMngr.mdf;
+        Integrated Security = True; Connect Timeout = 60";
 
         #region Cadenas de Conexion
         //CadenaConexion de Tiago: @"Data Source=(LocalDB)\MSSQLLocalDB;

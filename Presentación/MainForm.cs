@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Negocios;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,12 @@ namespace Presentación
         private Usuario UsuarioLogueado { get; set; }
         public NegUsuarios objNegUsuario = new NegUsuarios();
         public Usuario objEntUsuario = new Usuario();
+        public NegPersonajes objNegPersonaje = new NegPersonajes();
+        public Personaje objEntPersonaje = new Personaje();
+        public NegConjuntos objNegConjunto = new NegConjuntos();
+        public Conjunto objEntConjunto = new Conjunto();
+        public NegItems objNegItems = new NegItems();
+        public Item objEntItem = new Item();
         #endregion
         void IForm_Cerrado(object sender, EventArgs e)
         {
@@ -294,8 +301,6 @@ namespace Presentación
 
         }
 
-        
-
         private void label8_Click(object sender, EventArgs e)
         {
 
@@ -319,15 +324,20 @@ namespace Presentación
         {
 
         }
+
+        private void panelPersonajes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCreacionNivel_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region Propiedades estéticas 
         private void btCrearPersonaje_Click(object sender, EventArgs e)
-        {
-            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabCreacion"];
-        }
-
-        private void panelPersonajes_Click(object sender, EventArgs e)
         {
             TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabCreacion"];
         }
@@ -365,6 +375,61 @@ namespace Presentación
 
 
         #endregion
+        #region Pestaña Creacion Personaje
+
+        private void CargarDatosPersonaje(string clase)
+        {
+            int saludTotal = 20;
+            int energiaTotal = 15;
+            int ataqueTotal = 10;
+            int defensaTotal = 5;
+            int evasionTotal = 15;
+            objEntPersonaje.Nombre = textBox3.Text;
+            objEntPersonaje.Nivel = 1;
+            objEntPersonaje.Clase = clase;
+            
+            
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            comboBox2.SelectedIndex = -1;
+            comboBox2.Text = "";
+            textBox3.Text = "";
+            TabsDiseño.SelectedTab = TabsDiseño.TabPages["tabSelect"];
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string clase;
+            if(textBox3.Text == string.Empty || textBox3.Text == "")
+            {
+                MessageBox.Show("No hay nombre de Personaje");
+            }
+            else
+            {
+               if(comboBox2.SelectedIndex == -1)
+               {
+                    MessageBox.Show("No hay clase seleccionada");
+               }
+               {
+                    switch (comboBox2.SelectedIndex)
+                    {
+                        case 0:
+                            clase = "Mago";
+                            break;
+                        case 1:
+                        clase = "Guerrero";
+                            break;
+                        case 2:
+                            clase = "Ladrón";
+                            break;
+                        case 3:
+                            clase = "Clérigo";
+                            break;
+                        case 4:
+                            clase = "Caballero";
+                            break;
+                    }
 
         
 

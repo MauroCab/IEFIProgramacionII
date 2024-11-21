@@ -17,11 +17,34 @@ namespace Datos
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
-                orden = "insert into Personajes values (" + objPersonaje.Id +
-                ",'" + objPersonaje.Nombre + "');";
+            {
+                orden = "insert into Personajes (UsuarioId, Nombre, Nivel, Clase, Salud, Energia, Ataque, Defensa, Evasion, CascoId, PantId, GuantesId, " +
+                    "ArmaduraId, ArmaId, EscudoId, FechaCreacion) " +
+                "values (" + objPersonaje.IdUsuario + ", '" + objPersonaje.Nombre + "', " + objPersonaje.Nivel + ", '" + objPersonaje.Clase
+                + "', " + objPersonaje.Salud + ", " + objPersonaje.Energia + ", " + objPersonaje.Ataque + ","
+                + objPersonaje.Defensa + ", " + objPersonaje.Evasion + ", " + objPersonaje.CascoEq.Id + ", " + objPersonaje.PantEq.Id + ", "
+                + objPersonaje.GuantesEq.Id + ", " + objPersonaje.ArmaduraEq.Id + ",  " + objPersonaje.ArmaEq.Id + ",  "
+                + objPersonaje.EscudoEq.Id + ",  " + "NOW()" + ");";
+            }
+
             if (accion == "Modificar")
-                orden = "update Personajes set Nombre='" + objPersonaje.Nombre + "'where Id = " + objPersonaje.Id + "; ";
-            // falta la orden de borrar
+                orden = "update Personajes set Nivel = '" + objPersonaje.Nivel +
+                                        "', Salud = '" + objPersonaje.Salud +
+                                        "', Energia = '" + objPersonaje.Energia +
+                                        "', Ataque = '" + objPersonaje.Ataque +
+                                        "', Defensa = '" + objPersonaje.Defensa +
+                                        "', Evasion = '" + objPersonaje.Evasion +
+                                        "', CascoId = '" + objPersonaje.CascoEq.Id +
+                                        "', PantId = '" + objPersonaje.PantEq.Id +
+                                        "', GuantesId = '" + objPersonaje.GuantesEq.Id +
+                                        "', ArmaduraId = '" + objPersonaje.ArmaduraEq.Id +
+                                        "', ArmaId = '" + objPersonaje.ArmaEq.Id +
+                                        "', EscudoId = '" + objPersonaje.EscudoEq.Id +
+                                        "'where Id = " + objPersonaje.Id + "; ";
+
+            if (accion == "Baja")
+                orden = "Delete from Personajes where PersonajeId = " + objPersonaje.Id + ";";
+
             SqlCommand cmd = new SqlCommand(orden, conexion);
             try
             {
@@ -68,6 +91,5 @@ namespace Datos
             }
             return ds;
         }
-
     }
 }
